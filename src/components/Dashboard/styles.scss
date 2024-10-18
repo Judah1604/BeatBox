@@ -1,0 +1,41 @@
+.navbar {
+    .logo {
+        margin-left: 15px;
+        margin-top: 5px;
+    }
+
+    .nav {
+        margin-left: 10px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        &>* {
+            font-size: 1.1em;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-radius: 15px;
+            opacity: 0.7;
+            transition: 0.3s ease;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.06);
+                opacity: 1;
+            }
+
+            ion-icon {
+                font-size: 1.5em;
+            }
+        }
+
+        .active {
+            background-color: rgba(255, 255, 255, 0.06);
+            opacity: 1;
+        }
+    }
+}

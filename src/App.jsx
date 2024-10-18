@@ -1,9 +1,10 @@
 import "./styles/base/base.css";
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
 	return (
 		<div className="wrapper">
-			<div className="dashb">dashb</div>
+			<Dashboard />
             <div className="main">main</div>
 		</div>
 	);

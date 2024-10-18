@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400..600&family=Rubik:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400..600&display=swap');
 
 * {
     overflow-x: hidden;
@@ -15,20 +15,16 @@ body {
         height: calc(100vh - 30px);
         padding: 15px;
         display: grid;
-        grid-template-columns: 1.2fr 4fr;
+        grid-template-columns: 1.3fr 4fr;
         gap: 15px;
 
         &>* {
             padding: 20px;
         }
 
-        .dashb {
-            background-color: rgba(255, 255, 255, 0.05);
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.03);
             border-radius: 10px;
         }
     }
-}
-
-.logo {
-    font-family: 'Rubik', sans-serif;
 }
