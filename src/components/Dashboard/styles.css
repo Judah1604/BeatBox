@@ -1,6 +1,12 @@
+.navbar {
+  display: block;
+}
 .navbar .logo {
   margin-left: 15px;
-  margin-top: 5px;
+  margin-top: 15px;
+  color: rgb(61, 145, 255);
+  text-transform: uppercase;
+  overflow: hidden;
 }
 .navbar .nav {
   margin-left: 10px;
@@ -19,7 +25,7 @@
   gap: 15px;
   border-radius: 15px;
   opacity: 0.7;
-  transition: 0.3s ease;
+  transition: 0.3s ease-out;
 }
 .navbar .nav > *:hover {
   background-color: rgba(255, 255, 255, 0.06);
