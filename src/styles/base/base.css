@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400..600&family=Teko:wght@500&display=swap");
 * {
-  overflow-x: hidden;
   margin: 0;
 }
 
@@ -26,4 +25,12 @@ body #root .wrapper .navbar {
 }
 body .logo {
   font-family: "Teko", sans-serif;
+}
+
+h1, h2, h3, h4 {
+  overflow: hidden;
+}
+
+h1, h2 {
+  font-weight: 600;
 }/*# sourceMappingURL=base.css.map */

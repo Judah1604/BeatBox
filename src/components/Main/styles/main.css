@@ -23,5 +23,31 @@
   width: 100%;
 }
 .main .searchBar ion-icon {
-  font-size: 1.2em;
+  font-size: 1.4em;
+}
+.main .feat_playlists {
+  margin-top: 30px;
+}
+.main .feat_playlists .row {
+  gap: 20px;
+}
+.main .feat_playlists .row > * {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+.main .feat_playlists .row > * img {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+.main .feat_playlists .row > * h4 {
+  margin-top: 15px;
+}
+.main .feat_playlists .row > *:hover {
+  background-color: rgba(255, 255, 255, 0.07);
 }/*# sourceMappingURL=main.css.map */
