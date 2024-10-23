@@ -9,7 +9,7 @@ function Feat_Playlists() {
 		const fetchFeaturedPlaylists = async () => {
 			try {
 				const response = await fetch(
-					"https://api.spotify.com/v1/browse/featured-playlists?limit=5",
+					"https://api.spotify.com/v1/browse/featured-playlists?limit=10",
 					{
 						headers: {
 							Authorization: `Bearer ${token}`,
