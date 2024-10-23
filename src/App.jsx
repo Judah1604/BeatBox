@@ -2,9 +2,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/base/base.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Main from "./components/Main/Main";
-import { useEffect, useState } from "react";
+import { Component, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { changeToken } from "./features/tokenSlice";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Search from "./components/Main/components/Search";
 
 function App() {
 	const client_id = "1c772d37b7a748a4acfa00530e3c59bf";
@@ -41,8 +43,13 @@ function App() {
 
 	return (
 		<div className="wrapper">
-			<Dashboard />
-			<Main />
+			<Router>
+				<Dashboard />
+				<Routes>
+					<Route Component={Main} path="/" />
+					<Route Component={Search} path="/search" />
+				</Routes>
+			</Router>
 		</div>
 	);
 }

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./styles.css";
 
 function Dashboard() {
@@ -5,16 +6,19 @@ function Dashboard() {
 		<div className="navbar">
 			<h1 className="logo">BeatBox.</h1>
 			<div className="nav">
-				<a href="/" className="active">
+				<NavLink
+					to="/"
+					className={({ isActive }) => (isActive ? "active" : "")}
+				>
 					<ion-icon name="home-outline"></ion-icon>
 					Home
-				</a>
-				<a href="#">
-					<ion-icon name="grid-outline"></ion-icon>Genres
-				</a>
-				<a href="#">
+				</NavLink>
+				<NavLink to="/search">
+					<ion-icon name="search-outline"></ion-icon>Search
+				</NavLink>
+				<NavLink to="/playlists">
 					<ion-icon name="albums-outline"></ion-icon>Playlists
-				</a>
+				</NavLink>
 			</div>
 		</div>
 	);

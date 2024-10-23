@@ -1,12 +1,11 @@
-import SearchBar from './components/SearchBar';
-import Feat_Playlists from './components/Feat_Playlists';
-import './styles/main.css';
+import Feat_Playlists from "./components/Feat_Playlists";
+import "./styles/main.css";
 
-function Main({token}) {
+function Main() {
 	return (
 		<div className="main">
-			<SearchBar />
-            <Feat_Playlists />
+            <h2>Welcome!!</h2>
+			<Feat_Playlists />
 		</div>
 	);
 }

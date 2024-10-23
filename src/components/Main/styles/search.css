@@ -1,0 +1,29 @@
+.searchBar {
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: 0.3s ease-out;
+  width: 55%;
+  padding: 1em 1.7em;
+  border-radius: 50px;
+  cursor: text;
+  display: flex;
+  align-items: center;
+}
+.searchBar:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+.searchBar input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-family: inherit;
+  width: 100%;
+}
+.searchBar ion-icon {
+  font-size: 1.4em;
+}
+
+.searchResults {
+  margin-top: 30px;
+  display: none;
+}/*# sourceMappingURL=search.css.map */

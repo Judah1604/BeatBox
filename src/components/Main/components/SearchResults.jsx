@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
 
 function SearchResults() {
-  return (
-    <div>SearchResults</div>
-  )
+	const value = useSelector((state) => state.results.value);
+
+	return (
+		<div className={value ? "searchResults visible" : "searchResults"}>
+			Here are the search results...
+		</div>
+	);
 }
 
-export default SearchResults
+export default SearchResults;

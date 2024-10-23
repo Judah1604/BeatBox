@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 
 function Feat_Playlists() {
 	const [playlists, setPlaylists] = useState([]),
-        token = useSelector((state) => state.token.value)
+		token = useSelector((state) => state.token.value),
+		value = useSelector((state) => state.results.value);
 
 	useEffect(() => {
 		const fetchFeaturedPlaylists = async () => {
@@ -18,7 +19,6 @@ function Feat_Playlists() {
 				);
 
 				const data = await response.json();
-				console.log(data);
 				setPlaylists(data.playlists.items);
 			} catch (error) {
 				console.error("Error fetching playlists:", error);
@@ -29,7 +29,7 @@ function Feat_Playlists() {
 	});
 
 	return (
-		<div className="feat_playlists">
+		<div className={value ? "feat_playlists invisible" : "feat_playlists"}>
 			<h2>Featured Playlists</h2>
 			<div className="row mt-4">
 				{playlists.map((playlist, index) => {
@@ -42,10 +42,10 @@ function Feat_Playlists() {
 							<img
 								src={playlist.images[0].url}
 								alt={playlist.name}
-                                className="blur"
+								className="blur"
 							/>
 							<h4>{playlist.name}</h4>
-                            <p className="uri">{playlist.uri}</p>
+							<p className="uri">{playlist.uri}</p>
 						</div>
 					);
 				})}

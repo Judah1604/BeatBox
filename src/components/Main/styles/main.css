@@ -1,30 +1,6 @@
 .main {
   margin-top: 5px;
 }
-.main .searchBar {
-  background-color: rgba(255, 255, 255, 0.05);
-  transition: 0.3s ease-out;
-  width: 55%;
-  padding: 1em 1.7em;
-  border-radius: 50px;
-  cursor: text;
-  display: flex;
-  align-items: center;
-}
-.main .searchBar:hover {
-  background-color: rgba(255, 255, 255, 0.07);
-}
-.main .searchBar input {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  color: white;
-  font-family: inherit;
-  width: 100%;
-}
-.main .searchBar ion-icon {
-  font-size: 1.4em;
-}
 .main .feat_playlists {
   margin-top: 30px;
 }
@@ -67,4 +43,12 @@
 }
 .main .feat_playlists .row > *:hover {
   background-color: rgba(255, 255, 255, 0.07);
+}
+
+.visible {
+  display: block !important;
+}
+
+.feat_playlists.invisible {
+  display: none;
 }/*# sourceMappingURL=main.css.map */

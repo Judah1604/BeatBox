@@ -1,20 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-	value: '',
+	value: false,
 };
 
-export const tokenSlice = createSlice({
-	name: "token",
+export const resultsSlice = createSlice({
+	name: "results",
 	initialState,
 	reducers: {
-		changeToken: (state, value) => {
+		changeValue: (state, value) => {
 			state.value = value.payload;
-		}
+		},
 	},
 });
 
 // Action creators are generated for each case reducer function
-export const { changeToken } = tokenSlice.actions;
+export const { changeValue } = resultsSlice.actions;
 
-export default tokenSlice.reducer;
+export default resultsSlice.reducer;
