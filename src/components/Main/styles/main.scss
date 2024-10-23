@@ -41,16 +41,34 @@
                 border-radius: 10px;
                 cursor: pointer;
                 transition: 0.3s ease-out;
+                position: relative;
+                overflow: hidden;
 
                 img {
                     width: 100%;
-                    height: 250px;
                     object-fit: cover;
                     border-radius: 5px;
                 }
 
+                .blur {
+                    width: 90%;
+                    object-fit: cover;
+                    border-radius: 5px;
+                    position: absolute;
+                    z-index: -1;
+                    inset: 0;
+                    top: 30px;
+                    left: 5%;
+                    filter: blur(40px) brightness(0.5);
+                }
+
+                .uri {
+                    display: none;
+                }
+
                 h4 {
                     margin-top: 15px;
+                    margin-left: 5px;
                 }
 
                 &:hover {

@@ -1,5 +1,8 @@
 .navbar {
     display: block;
+    position: sticky;
+    top: 15px;
+    height: calc(100vh - 30px);
 
     .logo {
         margin-left: 15px;
