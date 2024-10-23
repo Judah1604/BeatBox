@@ -29,6 +29,21 @@ body {
     .logo {
         font-family: "Teko", sans-serif;
     }
+
+    &::-webkit-scrollbar {
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
+            width: 15px;
+            transition: 0.3s ease;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.09);
+            }
+        }
 }
 
 h1, h2, h3, h4 {

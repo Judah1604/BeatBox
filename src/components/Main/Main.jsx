@@ -6,7 +6,7 @@ function Main({token}) {
 	return (
 		<div className="main">
 			<SearchBar />
-            <Feat_Playlists token={token} />
+            <Feat_Playlists />
 		</div>
 	);
 }

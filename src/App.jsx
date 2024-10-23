@@ -3,11 +3,13 @@ import "./styles/base/base.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Main from "./components/Main/Main";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { changeToken } from "./features/tokenSlice";
 
 function App() {
 	const client_id = "1c772d37b7a748a4acfa00530e3c59bf";
 	const client_secret = "3d12df8c557a4b918b5f862c26833f8c",
-		[accessToken, setAccessToken] = useState("");
+		dispatch = useDispatch();
 
 	useEffect(() => {
 		const fetchToken = async () => {
@@ -28,7 +30,7 @@ function App() {
 				);
 
 				const data = await response.json();
-                setAccessToken(data.access_token)
+				dispatch(changeToken(data.access_token));
 			} catch (error) {
 				console.error("Error fetching token:", error);
 			}
@@ -40,7 +42,7 @@ function App() {
 	return (
 		<div className="wrapper">
 			<Dashboard />
-			<Main token={accessToken}/>
+			<Main />
 		</div>
 	);
 }

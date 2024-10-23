@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-function Feat_Playlists({ token }) {
-	const [playlists, setPlaylists] = useState([]);
+function Feat_Playlists() {
+	const [playlists, setPlaylists] = useState([]),
+        token = useSelector((state) => state.token.value)
 
 	useEffect(() => {
 		const fetchFeaturedPlaylists = async () => {
