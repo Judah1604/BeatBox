@@ -1,4 +1,4 @@
-import Feat_Playlists from "./components/Feat_Playlists";
+import Feat_Playlists from "../components/Feat_Playlists";
 import "./styles/main.css";
 
 function Main() {

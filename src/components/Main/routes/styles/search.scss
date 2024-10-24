@@ -1,0 +1,101 @@
+.search {
+
+    .searchBar {
+        background-color: rgba(255, 255, 255, 0.05);
+        transition: 0.3s ease-out;
+        width: 55%;
+        padding: 1em 1.7em;
+        border-radius: 50px;
+        cursor: text;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.07);
+        }
+
+        input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: white;
+            font-family: inherit;
+            width: 100%;
+        }
+
+        ion-icon {
+            font-size: 1.4em;
+        }
+    }
+
+    .searchResults {
+        margin-top: 20px;
+
+        .toggles {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+
+            &>* {
+                padding: 10px 35px;
+                border: 2px solid #7b7b7b;
+                border-radius: 100px;
+                font-size: 0.95em;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &.active {
+                    border-color: rgb(61, 145, 255);
+                    color: rgb(61, 145, 255);
+
+                    &:hover {
+                        filter: brightness(1);
+                    }
+                }
+
+                &:hover {
+                    filter: brightness(0.7);
+                }
+            }
+        }
+
+        .results {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+
+            h4 {
+                font-weight: 500;
+                margin-bottom: 3px;
+                font-size: 1.4em;
+            }
+
+            .info {
+                font-size: 0.9em;
+
+                p {
+                    color: #7b7b7b;
+                    margin: 0;
+                }
+            }
+
+            &>* {
+
+                &>* {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+            }
+
+            img {
+                width: 55px;
+                height: 55px;
+                object-fit: cover;
+                border-radius: 4px;
+            }
+        }
+    }
+}

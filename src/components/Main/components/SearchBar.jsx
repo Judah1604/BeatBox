@@ -1,20 +1,10 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { changeValue } from "../../../features/resultsSlice";
+import React from "react";
 
-function SearchBar() {
-	const dispatch = useDispatch(),
-		[query, setQuery] = useState("");
+function SearchBar({ query, setQuery }) {
 
 	const handleInput = (e) => {
-		const newValue = e.target.value; 
-		setQuery(newValue);  
-
-		if (newValue !== "") {
-			dispatch(changeValue(true));
-		} else {
-			dispatch(changeValue(false));
-		}
+		const newValue = e.target.value;
+		setQuery(newValue);
 	};
 
 	return (

@@ -13,7 +13,10 @@ function Dashboard() {
 					<ion-icon name="home-outline"></ion-icon>
 					Home
 				</NavLink>
-				<NavLink to="/search">
+				<NavLink
+					to="/search"
+					className={({ isActive }) => (isActive ? "active" : "")}
+				>
 					<ion-icon name="search-outline"></ion-icon>Search
 				</NavLink>
 				<NavLink to="/playlists">

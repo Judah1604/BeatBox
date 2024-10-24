@@ -1,12 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/base/base.css";
 import Dashboard from "./components/Dashboard/Dashboard";
-import Main from "./components/Main/Main";
-import { Component, useEffect } from "react";
+import Main from "./components/Main/routes/Main";
+import Search from "./components/Main/routes/Search";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { changeToken } from "./features/tokenSlice";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Search from "./components/Main/components/Search";
 
 function App() {
 	const client_id = "1c772d37b7a748a4acfa00530e3c59bf";

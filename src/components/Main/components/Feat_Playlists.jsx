@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 
 function Feat_Playlists() {
 	const [playlists, setPlaylists] = useState([]),
-		token = useSelector((state) => state.token.value),
-		value = useSelector((state) => state.results.value);
+		token = useSelector((state) => state.token.value)
 
 	useEffect(() => {
 		const fetchFeaturedPlaylists = async () => {
@@ -29,7 +28,7 @@ function Feat_Playlists() {
 	});
 
 	return (
-		<div className={value ? "feat_playlists invisible" : "feat_playlists"}>
+		<div className="feat_playlists">
 			<h2>Featured Playlists</h2>
 			<div className="row mt-4">
 				{playlists.map((playlist, index) => {
