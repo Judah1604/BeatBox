@@ -67,6 +67,11 @@
   color: #7b7b7b;
   margin: 0;
 }
+.search .searchResults .results > * {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 .search .searchResults .results > * > * {
   display: flex;
   align-items: center;

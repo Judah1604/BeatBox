@@ -4,7 +4,7 @@ import "./styles/main.css";
 function Main() {
 	return (
 		<div className="main">
-            <h2>Welcome!!</h2>
+			<h1 className="logo">BeatBox.</h1>
 			<Feat_Playlists />
 		</div>
 	);

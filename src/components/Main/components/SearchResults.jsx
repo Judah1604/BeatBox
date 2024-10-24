@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 function SearchResults({ query, results }) {
-	const [selected, setSelected] = useState("Tracks"),
-		toggles = ["Tracks", "Artistes", "Playlists"];
+	const [selected, setSelected] = useState("Tracks");
+	const toggles = ["Tracks", "Artistes", "Playlists"];
 
 	return (
 		<div className="searchResults">
@@ -15,58 +15,107 @@ function SearchResults({ query, results }) {
 			</div>
 			<div
 				className={
-					query === "" && results.error ? "results-wrapper d-none" : "results-wrapper"
+					query === "" && results.error
+						? "results-wrapper d-none"
+						: "results-wrapper"
 				}
 			>
 				<div className="toggles">
-					{toggles.map((toggleName, index) => {
-						return (
-							<div
-								className={
-									selected === toggleName
-										? "toggle active"
-										: "toggle"
-								}
-								onClick={() => setSelected(toggleName)}
-								key={index}
-							>
-								{toggleName}
-							</div>
-						);
-					})}
+					{toggles.map((toggleName) => (
+						<div
+							className={
+								selected === toggleName
+									? "toggle active"
+									: "toggle"
+							}
+							onClick={() => setSelected(toggleName)}
+							key={toggleName} // Better to use a unique value
+						>
+							{toggleName}
+						</div>
+					))}
 				</div>
 				<div className="results">
 					<div
 						className={selected === "Tracks" ? "tracks" : "d-none"}
 					>
-						<div className="track">
-							<img src="/Images/demo-playlist.jpg" alt="name" />
-							<div className="info">
-								<h4>Towers At Sea</h4>
-								<p>Song | Artist</p>
-							</div>
-						</div>
+						{!results.error && results.tracks?.items ? (
+							results.tracks.items.map((track) => (
+								<div className="track" key={track.id}>
+									{" "}
+									<img
+										src={
+											track.album.images[1]?.url ||
+											"/default-image.jpg"
+										}
+										alt={track.name}
+									/>
+									<div className="info">
+										<h4>{track.name}</h4>
+										<p>
+											Song |{" "}
+											{track.artists
+												.map((artist) => artist.name)
+												.join(", ") || "Unknown Artist"}
+										</p>
+									</div>
+								</div>
+							))
+						) : (
+							<p>No tracks available.</p>
+						)}
 					</div>
 					<div
 						className={
 							selected === "Playlists" ? "playlists" : "d-none"
 						}
 					>
-						<div className="playlist">
-							<img src="/Images/demo-playlist.jpg" alt="name" />
-							<div className="info">
-								<h4>PlayList Name</h4>
-								<p>Playlist | Owner Name</p>
-							</div>
-						</div>
+						{!results.error && results.tracks?.items ? (
+							results.playlists.items.map((playlist) => (
+								<div className="playlist" key={playlist.id}>
+									<img
+										src={
+											playlist.images[0]?.url ||
+											"/Images/demo-playlist.jpg"
+										}
+										alt={playlist.name}
+									/>
+									<div className="info">
+										<h4>{playlist.name}</h4>
+										<p>
+											Playlist |{" "}
+											{playlist.owner.display_name}
+										</p>
+									</div>
+								</div>
+							))
+						) : (
+							<p>No playlists available.</p>
+						)}
 					</div>
 					<div
 						className={
 							selected === "Artistes" ? "artistes" : "d-none"
 						}
 					>
+						{!results.error && results.tracks?.items ? (
+							results.artists.items.map((artist) => (
+								<div className="artist" key={artist.id}>
+									<img src={artist.images[0].url || '/Images/demo-playlist.jpg'} alt={artist.name} />
+									<div className="info">
+										<h4>{artist.name}</h4>
+										<p>Artist</p>
+									</div>
+								</div>
+							))
+						) : (
+							<p>No artistes available.</p>
+						)}
 						<div className="artist">
-							<img src="/Images/demo-playlist.jpg" alt="name" />
+							<img
+								src="/Images/demo-playlist.jpg"
+								alt="Artist Name"
+							/>
 							<div className="info">
 								<h4>Artist Name</h4>
 								<p>Artist</p>

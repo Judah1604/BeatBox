@@ -4,12 +4,6 @@
   top: 15px;
   height: calc(100vh - 30px);
 }
-.navbar .logo {
-  margin-left: 15px;
-  margin-top: 15px;
-  color: rgb(61, 145, 255);
-  text-transform: uppercase;
-}
 .navbar .nav {
   margin-left: 10px;
   margin-top: 20px;
@@ -39,4 +33,11 @@
 .navbar .nav .active {
   background-color: rgba(255, 255, 255, 0.06);
   opacity: 1;
+}
+
+.logo {
+  margin-left: 15px;
+  margin-top: 15px;
+  color: rgb(61, 145, 255);
+  text-transform: uppercase;
 }/*# sourceMappingURL=styles.css.map */

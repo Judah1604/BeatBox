@@ -1,6 +1,9 @@
 .main {
   margin-top: 5px;
 }
+.main .logo {
+  margin: 0;
+}
 .main .feat_playlists {
   margin-top: 30px;
 }
