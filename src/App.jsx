@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { changeToken } from "./features/tokenSlice";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Playlist from "./components/Main/routes/Playlist";
 
 function App() {
 	const client_id = "1c772d37b7a748a4acfa00530e3c59bf";
@@ -48,6 +49,7 @@ function App() {
 				<Routes>
 					<Route Component={Main} path="/" />
 					<Route Component={Search} path="/search" />
+					<Route Component={Playlist} path="/playlist" />
 				</Routes>
 			</Router>
 		</div>

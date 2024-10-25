@@ -1,0 +1,85 @@
+.playlist-info header {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.playlist-info header h1 {
+  font-size: 4em;
+}
+.playlist-info header .info {
+  margin-top: 20px;
+}
+.playlist-info header span {
+  margin: 0 5px;
+}
+.playlist-info .tracks {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 20px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 5px;
+}
+.playlist-info .tracks .track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+  padding: 12px 12px;
+  border-bottom: 1px solid #1b1b1b;
+}
+.playlist-info .tracks .track:last-child {
+  border: none;
+}
+.playlist-info .tracks .track:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.playlist-info .tracks .track ion-icon {
+  font-size: 1.1em;
+}
+.playlist-info .tracks .track .col {
+  text-align: center;
+}
+.playlist-info .tracks .impo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.playlist-info .tracks h4 {
+  font-weight: 500;
+  margin-bottom: 3px;
+  font-size: 1.4em;
+}
+.playlist-info .tracks .info {
+  font-size: 0.9em;
+}
+.playlist-info .tracks .info p {
+  color: #7b7b7b;
+  margin: 0;
+  text-align: left;
+}
+.playlist-info .tracks img {
+  width: 55px;
+  height: 55px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
+.playlist-info .playlist-img {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.playlist-info .owner-pic {
+  width: 35px;
+  height: 35px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}/*# sourceMappingURL=playlist.css.map */

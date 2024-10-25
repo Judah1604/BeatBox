@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { changeId } from "../../../features/IdSlice";
 
 function SearchResults({ query, results }) {
-	const [selected, setSelected] = useState("Tracks");
-	const toggles = ["Tracks", "Artistes", "Playlists"];
+	const [selected, setSelected] = useState("Tracks"),
+		toggles = ["Tracks", "Artistes", "Playlists"],
+		dispatch = useDispatch();
 
 	return (
 		<div className="searchResults">
@@ -72,7 +75,11 @@ function SearchResults({ query, results }) {
 					>
 						{!results.error && results.tracks?.items ? (
 							results.playlists.items.map((playlist) => (
-								<div className="playlist" key={playlist.id}>
+								<div
+									className="playlist"
+									key={playlist.id}
+									onClick={dispatch(changeId(playlist.id))}
+								>
 									<img
 										src={
 											playlist.images[0]?.url ||
@@ -101,7 +108,13 @@ function SearchResults({ query, results }) {
 						{!results.error && results.tracks?.items ? (
 							results.artists.items.map((artist) => (
 								<div className="artist" key={artist.id}>
-									<img src={artist.images[0].url || '/Images/demo-playlist.jpg'} alt={artist.name} />
+									<img
+										src={
+											artist.images[0]?.url ||
+											"/Images/demo-playlist.jpg"
+										}
+										alt={artist.name}
+									/>
 									<div className="info">
 										<h4>{artist.name}</h4>
 										<p>Artist</p>
@@ -111,16 +124,6 @@ function SearchResults({ query, results }) {
 						) : (
 							<p>No artistes available.</p>
 						)}
-						<div className="artist">
-							<img
-								src="/Images/demo-playlist.jpg"
-								alt="Artist Name"
-							/>
-							<div className="info">
-								<h4>Artist Name</h4>
-								<p>Artist</p>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

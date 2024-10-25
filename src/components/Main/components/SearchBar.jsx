@@ -11,7 +11,7 @@ function SearchBar({ query, setQuery }) {
 		<div className="searchBar">
 			<input
 				type="text"
-				placeholder="Search..."
+				placeholder="Search for tracks, playlists and artists..."
 				value={query}
 				onChange={(e) => handleInput(e)}
 			/>

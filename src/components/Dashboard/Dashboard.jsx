@@ -19,8 +19,14 @@ function Dashboard() {
 				>
 					<ion-icon name="search-outline"></ion-icon>Search
 				</NavLink>
-				<NavLink to="/playlists">
+				<NavLink
+					to="/playlist"
+					className={({ isActive }) => (isActive ? "active" : "")}
+				>
 					<ion-icon name="albums-outline"></ion-icon>Playlists
+				</NavLink>
+				<NavLink to="/recently-played">
+					<ion-icon name="grid-outline"></ion-icon>Recently Played
 				</NavLink>
 			</div>
 		</div>
