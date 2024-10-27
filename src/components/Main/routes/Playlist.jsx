@@ -54,25 +54,31 @@ function Playlist() {
 
 	return (
 		<>
-			<div className={id ? "text-center d-none" : "text-center mt-4"}>
+			<div
+				className={
+					playlist.name !== "Unknown Playlist"
+						? "text-center d-none"
+						: "text-center mt-4"
+				}
+			>
 				No selected playlist yet...
 			</div>
 			<div className={id ? "playlist-info" : "playlist-info d-none"}>
 				<header>
 					<img
-						src={playlist.images && playlist.images.length > 0 ? playlist.images[0].url : '/Images/demo-playlist.jpg'}
+						src={
+							playlist.images && playlist.images.length > 0
+								? playlist.images[0].url
+								: "/Images/demo-playlist.jpg"
+						}
 						alt="name"
 						className="playlist-img"
 					/>
 					<div className="text">
-						<h1>{playlist.name || 'Unknown Playlist'}</h1>
+						<h1>{playlist.name || "Unknown Playlist"}</h1>
 						<p className="info">
-							<img
-								src='/Images/demo-playlist.jpg'
-								alt="owner-pic"
-								className="owner-pic"
-							/>
-							{playlist.owner?.display_name || 'Unknown'} <span>•</span> {tracks.length || 0} songs
+							{playlist.owner?.display_name || "Unknown"}{" "}
+							<span>•</span> {tracks.length || 0} songs
 						</p>
 					</div>
 				</header>
@@ -80,13 +86,25 @@ function Playlist() {
 					{tracks.map((track, index) => (
 						<div className="track" key={index}>
 							<div className="col impo">
-								<img src={track.track.album.images[0]?.url || '/Images/demo-playlist.jpg'} alt="name" />
+								<img
+									src={
+										track.track.album.images[0]?.url ||
+										"/Images/demo-playlist.jpg"
+									}
+									alt="name"
+								/>
 								<div className="info">
 									<h4>{track.track.name}</h4>
-									<p>{track.track.artists.map(artist => artist.name).join(', ')}</p>
+									<p>
+										{track.track.artists
+											.map((artist) => artist.name)
+											.join(", ")}
+									</p>
 								</div>
 							</div>
-							<div className="col">{(track.track.duration_ms / 60000).toFixed(2)}</div>
+							<div className="col">
+								{(track.track.duration_ms / 60000).toFixed(2)}
+							</div>
 							<div className="col">
 								<ion-icon name="play"></ion-icon>
 							</div>

@@ -21,7 +21,9 @@ function Dashboard() {
 				</NavLink>
 				<NavLink
 					to="/playlist"
-					className={({ isActive }) => (isActive ? "active" : "")}
+					className={({ isActive }) =>
+						isActive ? "active disabled" : "disabled"
+					}
 				>
 					<ion-icon name="albums-outline"></ion-icon>Playlists
 				</NavLink>

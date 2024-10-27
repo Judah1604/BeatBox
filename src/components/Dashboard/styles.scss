@@ -46,3 +46,7 @@
     color: rgb(61, 145, 255);
     text-transform: uppercase;
 }
+
+.disabled {
+    pointer-events: none;
+}

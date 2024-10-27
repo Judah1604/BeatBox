@@ -19,6 +19,10 @@
   position: relative;
   overflow: hidden;
 }
+.main .feat_playlists .row .playlist a {
+  color: white;
+  text-decoration: none;
+}
 .main .feat_playlists .row .playlist img {
   width: 100%;
   -o-object-fit: cover;
