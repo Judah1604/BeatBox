@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { changeId } from "../../../features/IdSlice";
+import { Link, NavLink } from "react-router-dom";
 
 function SearchResults({ query, results }) {
 	const [selected, setSelected] = useState("Tracks"),
@@ -75,26 +76,29 @@ function SearchResults({ query, results }) {
 					>
 						{!results.error && results.tracks?.items ? (
 							results.playlists.items.map((playlist) => (
-								<div
-									className="playlist"
-									key={playlist.id}
-									onClick={dispatch(changeId(playlist.id))}
-								>
-									<img
-										src={
-											playlist.images[0]?.url ||
-											"/Images/demo-playlist.jpg"
-										}
-										alt={playlist.name}
-									/>
-									<div className="info">
-										<h4>{playlist.name}</h4>
-										<p>
-											Playlist |{" "}
-											{playlist.owner.display_name}
-										</p>
+								<Link to={`/playlist/${playlist.id}`} key={playlist.id}>
+									<div
+										className="playlist"
+										onClick={dispatch(
+											changeId(playlist.id)
+										)}
+									>
+										<img
+											src={
+												playlist.images[0]?.url ||
+												"/Images/demo-playlist.jpg"
+											}
+											alt={playlist.name}
+										/>
+										<div className="info">
+											<h4>{playlist.name}</h4>
+											<p>
+												Playlist |{" "}
+												{playlist.owner.display_name}
+											</p>
+										</div>
 									</div>
-								</div>
+								</Link>
 							))
 						) : (
 							<p>No playlists available.</p>

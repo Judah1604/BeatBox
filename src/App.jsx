@@ -49,7 +49,7 @@ function App() {
 				<Routes>
 					<Route Component={Main} path="/" />
 					<Route Component={Search} path="/search" />
-					<Route Component={Playlist} path="/playlist" />
+					<Route Component={Playlist} path="/playlist/:id" />
 				</Routes>
 			</Router>
 		</div>

@@ -55,6 +55,7 @@
 }
 .playlist-info .tracks .info {
   font-size: 0.9em;
+  text-align: left;
 }
 .playlist-info .tracks .info p {
   color: #7b7b7b;
