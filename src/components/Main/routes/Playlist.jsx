@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./styles/playlist.css";
 import { useParams } from "react-router-dom";
+import { changeURI } from "../../../features/URISlice";
+
+const MS_IN_MINUTE = 60000;
 
 function Playlist() {
 	const token = useSelector((state) => state.token.value);
 	const { id } = useParams();
 	const [playlist, setPlaylist] = useState({});
 	const [tracks, setTracks] = useState([]);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const fetchPlaylistTracks = async () => {
+			if (!token) return;
+
 			try {
 				const response = await fetch(
 					`https://api.spotify.com/v1/playlists/${id}/tracks`,
@@ -21,7 +27,6 @@ function Playlist() {
 					}
 				);
 				const data = await response.json();
-				console.log(data);
 				setTracks(data.items);
 			} catch (error) {
 				console.error("Error fetching tracks:", error);
@@ -29,6 +34,8 @@ function Playlist() {
 		};
 
 		const fetchPlaylist = async () => {
+			if (!token) return;
+
 			try {
 				const response = await fetch(
 					`https://api.spotify.com/v1/playlists/${id}`,
@@ -39,17 +46,14 @@ function Playlist() {
 					}
 				);
 				const data = await response.json();
-				console.log(data);
 				setPlaylist(data);
 			} catch (error) {
 				console.error("Error fetching playlist:", error);
 			}
 		};
 
-		if (token) {
-			fetchPlaylist();
-			fetchPlaylistTracks();
-		}
+		fetchPlaylist();
+		fetchPlaylistTracks();
 	}, [id, token]);
 
 	return (
@@ -71,7 +75,7 @@ function Playlist() {
 								? playlist.images[0].url
 								: "/Images/demo-playlist.jpg"
 						}
-						alt="name"
+						alt="Playlist cover"
 						className="playlist-img"
 					/>
 					<div className="text">
@@ -83,33 +87,51 @@ function Playlist() {
 					</div>
 				</header>
 				<div className="tracks">
-					{tracks.map((track, index) => (
-						<div className="track" key={index}>
-							<div className="col impo">
-								<img
-									src={
-										track.track.album.images[0]?.url ||
-										"/Images/demo-playlist.jpg"
+					{tracks.length === 0 ? (
+						<p>No tracks found in this playlist.</p>
+					) : (
+						tracks.map((track, index) => {
+							return (
+								<div
+									className="track"
+									key={index}
+									onClick={() =>
+										dispatch(changeURI(track.track.uri))
 									}
-									alt="name"
-								/>
-								<div className="info">
-									<h4>{track.track.name}</h4>
-									<p>
-										{track.track.artists
-											.map((artist) => artist.name)
-											.join(", ")}
-									</p>
+								>
+									<div className="col impo">
+										<img
+											src={
+												track.track.album.images[0]
+													?.url ||
+												"/Images/demo-playlist.jpg"
+											}
+											alt={track.track.name}
+										/>
+										<div className="info">
+											<h4>{track.track.name}</h4>
+											<p>
+												{track.track.artists
+													.map(
+														(artist) => artist.name
+													)
+													.join(", ")}
+											</p>
+										</div>
+									</div>
+									<div className="col">
+										{track.track.album.name}
+									</div>
+									<div className="col">
+										{(
+											track.track.duration_ms /
+											MS_IN_MINUTE
+										).toFixed(2)}
+									</div>
 								</div>
-							</div>
-							<div className="col">
-								{(track.track.duration_ms / 60000).toFixed(2)}
-							</div>
-							<div className="col">
-								<ion-icon name="play"></ion-icon>
-							</div>
-						</div>
-					))}
+							);
+						})
+					)}
 				</div>
 			</div>
 		</>

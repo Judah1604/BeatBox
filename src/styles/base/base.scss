@@ -9,11 +9,11 @@ body {
     color: white;
     background-color: rgb(5, 5, 5);
 
-    #root .wrapper {
+    #root .content {
         width: 100%;
         padding: 15px;
         display: grid;
-        grid-template-columns: 1.3fr 4fr;
+        grid-template-columns: 1.4fr 4fr;
         gap: 15px;
 
         &>* {

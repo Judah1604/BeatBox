@@ -1,0 +1,15 @@
+.player {
+  position: sticky;
+  width: 100%;
+  transition: 0.3s ease;
+  bottom: -45px;
+  display: flex;
+  justify-content: center;
+}
+.player iframe {
+  width: 96%;
+}
+
+.player.active {
+  bottom: -45px;
+}/*# sourceMappingURL=player.css.map */

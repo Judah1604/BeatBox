@@ -27,9 +27,9 @@
         border-radius: 5px;
 
         .track {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr;
             align-items: center;
-            justify-content: space-between;
             gap: 20px;
             transition: 0.3s ease-out;
             cursor: pointer;

@@ -8,17 +8,17 @@ body {
   color: white;
   background-color: rgb(5, 5, 5);
 }
-body #root .wrapper {
+body #root .content {
   width: 100%;
   padding: 15px;
   display: grid;
-  grid-template-columns: 1.3fr 4fr;
+  grid-template-columns: 1.4fr 4fr;
   gap: 15px;
 }
-body #root .wrapper > * {
+body #root .content > * {
   padding: 20px;
 }
-body #root .wrapper .navbar {
+body #root .content .navbar {
   background-color: rgba(255, 255, 255, 0.03);
   border-radius: 20px;
 }

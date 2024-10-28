@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { changeToken } from "./features/tokenSlice";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Playlist from "./components/Main/routes/Playlist";
+import Player from "./components/Player/Player";
 
 function App() {
 	const client_id = "1c772d37b7a748a4acfa00530e3c59bf";
@@ -44,14 +45,17 @@ function App() {
 
 	return (
 		<div className="wrapper">
-			<Router>
-				<Dashboard />
-				<Routes>
-					<Route Component={Main} path="/" />
-					<Route Component={Search} path="/search" />
-					<Route Component={Playlist} path="/playlist/:id" />
-				</Routes>
-			</Router>
+			<div className="content">
+				<Router>
+					<Dashboard />
+					<Routes>
+						<Route Component={Main} path="/" />
+						<Route Component={Search} path="/search" />
+						<Route Component={Playlist} path="/playlist/:id" />
+					</Routes>
+				</Router>
+			</div>
+			<Player />
 		</div>
 	);
 }
