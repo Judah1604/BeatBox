@@ -58,82 +58,98 @@ function Playlist() {
 
 	return (
 		<>
-			<div
-				className={
-					playlist.name !== "Unknown Playlist"
-						? "text-center d-none"
-						: "text-center mt-4"
-				}
-			>
-				No selected playlist yet...
-			</div>
-			<div className={id ? "playlist-info" : "playlist-info d-none"}>
-				<header>
-					<img
-						src={
-							playlist.images && playlist.images.length > 0
-								? playlist.images[0].url
-								: "/Images/demo-playlist.jpg"
+			{playlist.error || !playlist ? (
+				<>
+					<p className="text-center">No playlist info yet</p>
+				</>
+			) : (
+				<>
+					<div
+						className={
+							playlist.name !== "Unknown Playlist"
+								? "text-center d-none"
+								: "text-center mt-4"
 						}
-						alt="Playlist cover"
-						className="playlist-img"
-					/>
-					<div className="text">
-						<h1>{playlist.name || "Unknown Playlist"}</h1>
-						<p className="info">
-							{playlist.owner?.display_name || "Unknown"}{" "}
-							<span>•</span> {tracks.length || 0} songs
-						</p>
+					>
+						No selected playlist yet...
 					</div>
-				</header>
-				<div className="tracks">
-					{tracks.length === 0 ? (
-						<p>No tracks found in this playlist.</p>
-					) : (
-						tracks.map((track, index) => {
-							return (
-								<div
-									className="track"
-									key={index}
-									onClick={() =>
-										dispatch(changeURI(track.track.uri))
-									}
-								>
-									<div className="col impo">
-										<img
-											src={
-												track.track.album.images[0]
-													?.url ||
-												"/Images/demo-playlist.jpg"
+					<div
+						className={
+							id ? "playlist-info" : "playlist-info d-none"
+						}
+					>
+						<header>
+							<img
+								src={
+									playlist.images &&
+									playlist.images.length > 0
+										? playlist.images[0].url
+										: "/Images/demo-playlist.jpg"
+								}
+								alt="Playlist cover"
+								className="playlist-img"
+							/>
+							<div className="text">
+								<h1>{playlist.name || "Unknown Playlist"}</h1>
+								<p className="info">
+									{playlist.owner?.display_name || "Unknown"}{" "}
+									<span>•</span> {tracks.length || 0} songs
+								</p>
+							</div>
+						</header>
+						<div className="tracks">
+							{tracks.length === 0 ? (
+								<p>No tracks found in this playlist.</p>
+							) : (
+								tracks.map((track) => {
+									return (
+										<div
+											className="track"
+											key={track.id}
+											onClick={() =>
+												dispatch(
+													changeURI(track.track.uri)
+												)
 											}
-											alt={track.track.name}
-										/>
-										<div className="info">
-											<h4>{track.track.name}</h4>
-											<p>
-												{track.track.artists
-													.map(
-														(artist) => artist.name
-													)
-													.join(", ")}
-											</p>
+										>
+											<div className="col impo">
+												<img
+													src={
+														track.track.album
+															.images[0]?.url ||
+														"/Images/demo-playlist.jpg"
+													}
+													alt={track.track.name}
+												/>
+												<div className="info">
+													<h4>{track.track.name}</h4>
+													<p>
+														{track.track.artists
+															.map(
+																(artist) =>
+																	artist.name
+															)
+															.join(", ")}
+													</p>
+												</div>
+											</div>
+											<div className="col">
+												{track.track.album.name}
+											</div>
+											<div className="col">
+												{(
+													track.track.duration_ms /
+													MS_IN_MINUTE
+												).toFixed(2)}
+											</div>
 										</div>
-									</div>
-									<div className="col">
-										{track.track.album.name}
-									</div>
-									<div className="col">
-										{(
-											track.track.duration_ms /
-											MS_IN_MINUTE
-										).toFixed(2)}
-									</div>
-								</div>
-							);
-						})
-					)}
-				</div>
-			</div>
+									);
+								})
+							)}
+						</div>
+					</div>
+				</>
+			)}
 		</>
 	);
 }

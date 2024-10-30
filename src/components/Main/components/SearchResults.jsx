@@ -15,7 +15,7 @@ function SearchResults({ query, results }) {
 					query === "" && results.error ? "demo" : "demo d-none"
 				}
 			>
-				Your search result will appear here...
+				Your search results will appear here...
 			</div>
 			<div
 				className={

@@ -6,30 +6,24 @@ function Player() {
 	const uri = useSelector((state) => state.uri.value);
 
 	useEffect(() => {
-		if (!uri) return; // Exit if uri is not set
-
-		const element = document.getElementById("embed-iframe");
-		const options = {
-			width: "100%",
-			height: "210",
-			uri: uri,
-		};
-
-		const callback = (EmbedController) => {
-			// You can handle the EmbedController here if needed
-		};
+		console.log("URI:", uri);
 
 		window.onSpotifyIframeApiReady = (IFrameAPI) => {
+			const element = document.getElementById("embed-iframe");
+			const options = {
+				uri: uri, // No need for template string here
+			};
+			const callback = (EmbedController) => {
+				// Add error handling or logging
+				if (EmbedController) {
+					console.log("Embed Controller created successfully");
+				} else {
+					console.error("Failed to create Embed Controller");
+				}
+			};
 			IFrameAPI.createController(element, options, callback);
 		};
-
-		// Cleanup function
-		return () => {
-			if (element) {
-				element.innerHTML = ""; // Clean up the iframe element
-			}
-		};
-	}, [uri]); // Run effect when uri changes
+	}, [uri]);
 
 	return (
 		<div className="player">
